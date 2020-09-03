@@ -41,11 +41,16 @@ def containsGGPark(apath) :
                 'GoldenGatePark']) > 0
 
 
-### length under 10, contains 3 towers
+### length under 10, contains coit, sutro, transamerica
 
 ### USF before GG park
 
 ### Contains either Chinatown or Alcatraz, but not both
+
+### All sites are in alphabetical order
+
+### At least two nodes between Castro Theater and City Hall
+
 
 
 
