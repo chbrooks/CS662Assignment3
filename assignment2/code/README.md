@@ -54,7 +54,7 @@ I have included two sample constraints for you. Write additional functions that 
 * Require the route visits both USF and Golden Gate Park, in that order.
 * Require the route contains either Chinatown or Alcatraz, but not both.
 * Require that all sites in the path are visited in alphabetical order.
-* Require that the route be of an even length.
+* Require that if Castro Theater and City Hall are in the route, there are at least two vertices between them.
 
 
 Extend your goal test to take as input a list of constraints and then apply all of these constraints to a path.
