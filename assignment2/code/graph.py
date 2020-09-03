@@ -69,47 +69,6 @@ class graph() :
                 self.adjlist[vertex1].append(newEdge)
 
 
-### this method should use the Floyd-Warshall algorithm to compute all-pairs shortest path on the graph, and return a matrix of distances, 
-### stored as a list of lists.
-
-### Pseudocode from Wikipedia: https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm
-### let dist be a | V | × | V | array of minimum distances initialized to ∞ (infinity)
-###    for each edge(u, v) do
-###      dist[u][v] ← w(u, v) // The weight of the edge(u, v)
-###    for each vertex v do
-###      dist[v][v] ← 0
-### for k from 1 to | V |
-###     for i from 1 to | V |
-###          for j from 1 to | V |
-###             if dist[i][j] > dist[i][k] + dist[k][j]
-###                 dist[i][j] ← dist[i][k] + dist[k][j]
-###             end if
-
-    def floydWarshall(self) :
-        nvertices = len(self.adjlist)
-        vertices = list(self.adjlist)
-        matrix = [[0 for item1 in range(nvertices)] for item2 in range(nvertices)]
-        # initialize distances
-        for i in range(nvertices) :
-            for j in range(nvertices) :
-                if i != j :
-                    matrix[i][j] = 10000
-        ### add all edges in the graph
-        for i in range(nvertices) :
-            edges = self.adjlist[vertices[i]]
-            for e in edges :
-                destination = e.dest
-                destIndex = vertices.index(destination)
-                matrix[i][destIndex] = e.distance
-                matrix[destIndex][i] = e.distance
-
-        for k in range(nvertices) :
-            for i in range(nvertices) :
-                for j in range(nvertices) :
-                    if matrix[i][j] > matrix[i][k] + matrix[k][j] :
-                        matrix[i][j] = matrix[i][k] + matrix[k][j]
-        return matrix
-
 class edge() :
     def __init__(self, src, dest, distance, time) :
         self.src = src
