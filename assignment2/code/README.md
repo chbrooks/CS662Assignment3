@@ -1,6 +1,6 @@
 Assignment 2: Search. 
 
-Due date: September 15, 11:59 pm. 
+Due date: September 15, 11:59 pm. 70 points.
 
 This assignment has the following learning objectives:
 
@@ -8,12 +8,11 @@ This assignment has the following learning objectives:
 * Illustrate the value of separating problem knowledge from algorithm.
 * Provide examples of "Pythonic" ways to implement solutions, especially OO Python, list comprehensions, and functions as objects.
 
-
 For this assignment, I have provided you with a fair amount of support code, which should let you focus on the interesting aspects of the problem.
 
 We will work with the San Francisco map from assignment 1, which is included in your repository. (please feel free to modify this to create additional test cases.) We will use distance as a solution metric in all cases.
 
-(20%) Path. As discussed in class, search is really the processing of traversing a series of states. In our problem, each state is associated with a partial path through a graph. I have provided the beginnings of a Path class for you; you should complete the following methods:
+(20%) Path. As discussed in class, search is really the traversing of a series of states. In our problem, each state is associated with a partial path through a graph. I have provided the beginnings of a Path class for you; you should complete the following methods:
 * __lt__, __le__, __gt__, __ge__, __eq__, __ne__. These will be used to order states in the search queue for A* search. Path p1 is < path p2 if p1.cost < p2.cost.
 
 * successors. I have provided you with a helper class called a PathFactory. Its job is to hold the graph representing this problem and to generate successors. It has one method, called successors. This should return a list of all Paths that are successors from the current path. (This will correspond to adjacent vertices in the graph). You may be tempted to try to put some "smarts" in this method and only return states that will lead to a particular solution. Resist this temptation - selecting between states is the role of the search function. This function should only return all possible successor states.
@@ -59,8 +58,8 @@ I have included two sample constraints for you. Write additional functions that 
 
 Extend your goal test to take as input a list of constraints and then apply all of these constraints to a path.
 
-(10%) Last, implement _forward checking_ as a supplement to your goal test. This is a function that should take as input a partial solution (i.e. a Path) and determine whether there exists any combination of unassigned vertices that could make this path a goal state. (in other words, does this partial solution violate the constraints?)
+(10%) Last, implement _forward checking_ as a supplement to your goal test. This is a function that should take as input a partial solution (i.e. a Path) and a list of constraints and determine whether there exists any combination of unassigned vertices that could make this path a goal state. (in other words, does this partial solution violate the constraints?)
 
-(10%) Compare the performance (in terms of the number of states expanded) of DFS when forward checking is used to the performance without. Prepare a short report that describes the performance of BFS, DFS, A*, and A* with forward checking on at least five progressively difficult problems. Start with a simple route, then move to a more difficult route, then add constraints. Count the number of states generated, expanded, and discarded as duplicates or not able to lead to a solution.
+(10%) Compare the performance (in terms of the number of states expanded) of DFS when forward checking is used to the performance without. Prepare a short report that describes the performance of BFS, DFS, A*, and DFS with forward checking on at least five progressively difficult problems. Start with a simple route, then move to a more difficult route, then add constraints. Count the number of states generated, expanded, and discarded as duplicates or not able to lead to a solution.
 
 Please also provide a script that allows me to easily run your code.
